@@ -1,5 +1,5 @@
 import './style.scss';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 //HW1: Make sure the component detects the moment it reaches the bottom
 //HW2: When the component reaches the bottom it should remove itself from the React DOM
@@ -8,13 +8,24 @@ const Flake = ({
         color = 0,
         top   = 0,
         left  = 0,
+        whenDone = () => {throw new Error("whenDone callback not implemented")}
     }) => {
 
+    const TOP_LIMIT = 100
+
     const [_top, setTop] = useState(top)
-    setTimeout(() => {
-        setTop(_top + 10)
-        console.log("update executed")
-    }, 500)
+
+    useEffect(() => {
+        if (_top > TOP_LIMIT) {
+            whenDone()
+        } else {
+            setTimeout(() => {
+                setTop(_top + 10)
+                console.log("update executed")
+            }, 500)
+        }
+    })
+        
 
     const style = {
         '--size': `${size}px`,
