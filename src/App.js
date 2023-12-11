@@ -1,15 +1,17 @@
 import './App.css';
-import { randColor, randInt } from './helpers/generators';
-import Flake from "./flake/component"
-import { useState } from 'react';
+import Snow from './snow-effect/snow/component'
+
 
 function App() {
 
-  let [showChild, setShowChild] = useState(true) 
+  // let [showChild, setShowChild] = useState(true) 
 
   return (
     <div className="App">
-      { showChild &&
+
+      <Snow qty={5} />
+
+      {/* { showChild &&
         <Flake 
         size={randInt(20, 40)} 
         color={randColor()}
@@ -17,7 +19,7 @@ function App() {
         left={randInt(0, 100)}  
         whenDone = {() => {setShowChild(false)}}
       />
-      }
+      } */}
     </div>
   );
 }
