@@ -6,7 +6,7 @@ const randInt = (min=0, max=1) => {
 const randColor = ({
     redish = 1,
     greenish = 1,
-    blueish = 1,
+    blueish = 10,
 } = {}) => {
     let red = randInt(0,255 * redish)
     let green = randInt(0,255 * greenish)

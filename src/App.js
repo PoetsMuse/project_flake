@@ -1,7 +1,6 @@
 import './App.css';
 import Snow from './snow-effect/snow/component'
 
-
 function App() {
 
   // let [showChild, setShowChild] = useState(true) 
